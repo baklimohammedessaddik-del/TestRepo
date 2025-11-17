@@ -1,0 +1,278 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8e7c7a34-52cc-4061-8351-3b5bdd219009",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting pandas\n",
+      "  Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)\n",
+      "Collecting numpy>=1.26.0 (from pandas)\n",
+      "  Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in /opt/conda/lib/python3.12/site-packages (from pandas) (2.9.0.post0)\n",
+      "Requirement already satisfied: pytz>=2020.1 in /opt/conda/lib/python3.12/site-packages (from pandas) (2024.2)\n",
+      "Collecting tzdata>=2022.7 (from pandas)\n",
+      "  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)\n",
+      "Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n",
+      "Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m12.4/12.4 MB\u001b[0m \u001b[31m139.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hDownloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m16.6/16.6 MB\u001b[0m \u001b[31m169.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "\u001b[?25hDownloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)\n",
+      "Installing collected packages: tzdata, numpy, pandas\n",
+      "Successfully installed numpy-2.3.5 pandas-2.3.3 tzdata-2025.2\n",
+      "Requirement already satisfied: requests in /opt/conda/lib/python3.12/site-packages (2.32.3)\n",
+      "Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/lib/python3.12/site-packages (from requests) (3.4.1)\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.12/site-packages (from requests) (3.10)\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/lib/python3.12/site-packages (from requests) (2.3.0)\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.12/site-packages (from requests) (2024.12.14)\n",
+      "Collecting bs4\n",
+      "  Downloading bs4-0.0.2-py2.py3-none-any.whl.metadata (411 bytes)\n",
+      "Requirement already satisfied: beautifulsoup4 in /opt/conda/lib/python3.12/site-packages (from bs4) (4.12.3)\n",
+      "Requirement already satisfied: soupsieve>1.2 in /opt/conda/lib/python3.12/site-packages (from beautifulsoup4->bs4) (2.5)\n",
+      "Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)\n",
+      "Installing collected packages: bs4\n",
+      "Successfully installed bs4-0.0.2\n",
+      "Collecting html5lib\n",
+      "  Downloading html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)\n",
+      "Requirement already satisfied: six>=1.9 in /opt/conda/lib/python3.12/site-packages (from html5lib) (1.17.0)\n",
+      "Requirement already satisfied: webencodings in /opt/conda/lib/python3.12/site-packages (from html5lib) (0.5.1)\n",
+      "Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)\n",
+      "Installing collected packages: html5lib\n",
+      "Successfully installed html5lib-1.1\n",
+      "Collecting lxml\n",
+      "  Downloading lxml-6.0.2-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.6 kB)\n",
+      "Downloading lxml-6.0.2-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.3 MB)\n",
+      "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m5.3/5.3 MB\u001b[0m \u001b[31m113.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+      "Installing collected packages: lxml\n",
+      "Successfully installed lxml-6.0.2\n",
+      "Requirement already satisfied: plotly in /opt/conda/lib/python3.12/site-packages (5.24.1)\n",
+      "Requirement already satisfied: tenacity>=6.2.0 in /opt/conda/lib/python3.12/site-packages (from plotly) (9.1.2)\n",
+      "Requirement already satisfied: packaging in /opt/conda/lib/python3.12/site-packages (from plotly) (24.2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "!pip install pandas\n",
+    "!pip install requests\n",
+    "!pip install bs4\n",
+    "!pip install html5lib\n",
+    "!pip install lxml\n",
+    "!pip install plotly"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "449cf417-eb75-411b-9ff6-e7d9622eb533",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import requests\n",
+    "from bs4 import BeautifulSoup"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9ee4cae5-b3df-41e1-ac27-7b0ee322f65b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import warnings\n",
+    "# Ignore all warnings\n",
+    "warnings.filterwarnings(\"ignore\", category=FutureWarning)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "87ac6d12-ac18-4c7d-8fe5-fcee6be05588",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "url='https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0220EN-SkillsNetwork/labs/project/revenue.htm'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "b8246bf3-a0de-4c15-b4d8-e1f6a126af07",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "html_data  = requests.get(url).text"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "8df13863-c863-4863-bd0f-1d2277141d3e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "soup = BeautifulSoup(html_data, 'html.parser')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "253a4bcf-c2c9-4c05-b925-65e7075f4fe1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tesla_revenue = pd.DataFrame(columns=[\"Date\", \"Revenue\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "141b3af3-aa28-407a-ab06-c26aae0c34cc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for row in soup.find(\"tbody\").find_all('tr'):\n",
+    "    col = row.find_all(\"td\")\n",
+    "    date = col[0].text\n",
+    "    revenue = col[1].text\n",
+    "    tesla_revenue  = pd.concat([tesla_revenue ,pd.DataFrame({\"Date\":[date], \"Revenue\":[revenue]})], ignore_index=True)  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "2b746b37-029b-4dda-bbf2-2f4c79c30bfb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tesla_revenue[\"Revenue\"] = tesla_revenue['Revenue'].str.replace(',|\\$',\"\",regex=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "8baa9ad8-d0bb-4915-b2ac-4bd0080042f5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tesla_revenue.dropna(inplace=True)\n",
+    "\n",
+    "tesla_revenue = tesla_revenue[tesla_revenue['Revenue'] != \"\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "273e5bb9-99ab-46eb-9272-f2cfaebffdbe",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Date</th>\n",
+       "      <th>Revenue</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>2013</td>\n",
+       "      <td>2013</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>2012</td>\n",
+       "      <td>413</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>10</th>\n",
+       "      <td>2011</td>\n",
+       "      <td>204</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11</th>\n",
+       "      <td>2010</td>\n",
+       "      <td>117</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>12</th>\n",
+       "      <td>2009</td>\n",
+       "      <td>112</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    Date Revenue\n",
+       "8   2013    2013\n",
+       "9   2012     413\n",
+       "10  2011     204\n",
+       "11  2010     117\n",
+       "12  2009     112"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "tesla_revenue.tail()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c10ab3a0-10bf-459a-81d7-1a8fc32246da",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
